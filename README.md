@@ -112,13 +112,18 @@ Upon injection of the payload above, you will get a reverse shell under the "www
 ![image](./images/2024-09-25_18h35_11.png)
 
 Moving on you can start looking around for a vulnerability/misconfiguration leading to privilege escalation.
-As a result of executing  the ```sudo -l``` command, you can see that the www-data user is allowed to run the following command with ```sudo```privileges.
+As a result of executing  the ```sudo -l``` command, you can see that the www-data user is allowed to run the following command with ```sudo``` privileges.
 
 ```
 /usr/bin/apt edit-sources ../*
 ```
-
 ![image](./images/2024-09-25_18h30_58.png)
+
+Executing the command ```sudo /usr/bin/apt edit-sources ../foo``` will present you with multiple options to choose a text editor. For privilege escalation, you can select either ```nano``` or ```vim```. Since these editors will run with sudo privileges, you can implement techniques to escalate your privileges. Both editors have techniques for privilege escalation, which you can find in the following links:
+
+https://gtfobins.github.io/gtfobins/vim/#sudo
+https://gtfobins.github.io/gtfobins/nano/#sudo
+
 ![image](./images/2024-09-25_18h33_34.png)
 ![image](./images/2024-09-25_18h34_12.png)
 
