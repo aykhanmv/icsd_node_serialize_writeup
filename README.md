@@ -56,11 +56,19 @@ According to this message, you can understand that your next step will be downlo
 ![image](./images/2024-09-25_17h41_42.png)
 
 To begin your code review, start with the ```app.js``` file. In the ```app.js``` file, you'll also notice a warning comment regarding the ```node-serialize``` package.
+
 ![image](./images/2024-09-25_17h43_07.png)
 
+To identify what the node-serialize package is vulnerable to, you can search online. You'll discover that it has a critical vulnerability: arbitrary remote code execution, which is explained in the following link. This vulnerability specifically affects the ```unserialize``` function, according to the explanation.
+https://security.snyk.io/vuln/npm:node-serialize:20170208
+
+Knowing that the web application is vulnerable to remote code execution, you can examine the source code further to find out where and how the ```node-serialize``` package is used. By searching in the ```app.js``` file, you'll find that the vulnerable package is passed to the ```home``` router after being imported.
 
 ![image](./images/2024-09-25_17h45_54.png)
-![image](./images/2024-09-25_17h47_51.png)
+
+```app.js```
+To understand how and for what functionality of the web application the ```node-serialize``` package is used, open the JavaScript file responsible for the home page.
+
 ![image](./images/2024-09-25_17h54_27.png)
 ![image](./images/2024-09-25_18h08_36.png)
 ![image](./images/2024-09-25_18h12_04.png)
