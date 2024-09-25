@@ -16,9 +16,15 @@ When you navigate to the registration page, you will see that the form requires 
 
 ![image](./images/2024-09-25_17h30_48.png)
 
-While examining the registration, the web applicaiton checks only on the client side to see wether the user enetere email address meets the requirement or not. (ends with "@oracle.az").
-Meaning, you can easily 
+When registering, you'll see that the application sends an OTP code to the provided email address for verification. This step prevents users from simply filling out the form with a fake email and creating an account.
+While examining further the registration page, you can notice that the web application only verifies whether the entered email address meets the requirement (ending with '@oracle.az') on the client side.
 
+![image](./images/2024-09-25_18h56_23.png)
+
+Som, you can fill out the registration form with dummy inputs, capture the network traffic with Burp Suite, and replace the email address with one of your choice (either an email you own or a temporary/disposable email) to receive the OTP code and pass verification.
+
+For demonstration purposes, a temporary email was used.
+https://temp-mail.org/
 
 
 ![image](./images/2024-09-25_17h31_16.png)
