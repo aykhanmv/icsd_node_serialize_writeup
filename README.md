@@ -18,8 +18,10 @@ To discover directories on the web application, you can use a directory brute-fo
 ![image](./images/2024-09-25_17h29_25.png)
 
 When you navigate to the registration page, you will see that the form requires you to enter an email address ending with "@oracle.az" only.
-When registering, you'll see that the application sends an OTP code to the provided email address for verification. This step prevents users from simply filling out the form with a fake email and creating an account.
-While examining further the registration page, you can notice that the web application only verifies whether the entered email address meets the requirement (ending with '@oracle.az') on the client side.
+
+![image](./images/2024-09-25_17h31_16.png)
+
+Upon registering, the application sends an OTP code to the provided email for verification, ensuring that users cannot create accounts with fake email addresses. However, after further inspection, you can notice that the email validation (checking if it ends with '@oracle.az') is only performed on the client side.
 
 ![image](./images/2024-09-25_18h56_23.png)
 
@@ -29,7 +31,7 @@ For demonstration purposes, a temporary email was used.
 https://temp-mail.org/
 
 
-![image](./images/2024-09-25_17h31_16.png)
+
 ![image](./images/2024-09-25_17h32_38.png)
 ![image](./images/2024-09-25_17h33_19.png)
 ![image](./images/2024-09-25_17h33_58.png)
