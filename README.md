@@ -126,5 +126,8 @@ https://gtfobins.github.io/gtfobins/vim/#sudo
 https://gtfobins.github.io/gtfobins/nano/#sudo
 
 ![image](./images/2024-09-25_18h33_34.png)
+
+As a result, you will gain elevated privileges on the target machines under the root user and will be able to read the last flag for the CTF.
+
 ![image](./images/2024-09-25_18h34_12.png)
 
