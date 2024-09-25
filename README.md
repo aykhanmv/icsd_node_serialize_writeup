@@ -6,7 +6,7 @@ nmap -sV -v <target IP>
 ```
 ![image](./images/2024-09-25_17h30_17.png)
 
-Based on the NMAP results, there are two ports open: SSH (22) and HTTP (80).
+Based on the NMAP results, there are two open ports: SSH (22) and HTTP (80).
 If you navigate to the target IP address on a browser you will see a page as follows.
 
 ![image](./images/2024-09-25_17h30_48.png)
@@ -17,7 +17,7 @@ To discover directories on the web application, you can use a directory brute-fo
 
 ![image](./images/2024-09-25_17h29_25.png)
 
-When you navigate to the registration page, you will see that the form requires you to enter an email address ending with "@oracle.az" only.
+When you navigate to the registration page to create a new user, you will see that the form requires you to enter an email address ending with "@oracle.az" only.
 
 ![image](./images/2024-09-25_17h31_16.png)
 
@@ -35,27 +35,27 @@ Once you have placed a valid email address you can forward the traffic, which wi
 
 ![image](./images/2024-09-25_17h38_46.png)
 
-To complete the registration process, enter the OTP code on the web application and submit.
+To complete the registration process, enter the OTP code and submit.
 
 ![image](./images/2024-09-25_17h39_16.png)
 ![image](./images/2024-09-25_17h39_31.png)
 
 As a result, you will be redirected to the login page with a success message indicating that you have successfully created a new user.
-Having a user on the web application you can log in.
+Having a user on the web application you can log in now. On the home page, you will see the first flag for the CTF.
 
 ![image](./images/2024-09-25_17h39_50.png)
-
-On the home page, you will see the first flag for the CTF.
-
-![image](./images/2024-09-25_17h41_34.png)
 
 Since you now have a valid user, you can visit the "dev" directory discovered earlier while directory brute-forcing with FFUF.
 On the "dev" directory you will see two files: notes.txt and source.zip
 
-![image](./images/2024-09-25_17h41_42.png)
+![image](./images/2024-09-25_17h41_34.png)
 
 The notes.txt file contains a message titled 'Security Alert,' highlighting a critical vulnerability in the application originating from a package called node-serialize.
 According to this message, you can understand that your next step will be download the source code of the web app (/dev/source.zip) and analyze it to move the attack further. 
+
+![image](./images/2024-09-25_17h41_42.png)
+
+
 
 ![image](./images/2024-09-25_17h42_59.png)
 
