@@ -69,14 +69,19 @@ Knowing that the web application is vulnerable to remote code execution, you can
 To understand how and for what functionality of the web application the ```node-serialize``` package is used, open the JavaScript file responsible for the home page.
 Upon reviewing the code, two key points emerge:
  [*] When a user searches for a keyword, it is taken from the request, serialized, and stored in a cookie named ```last_search```.
- [*] During each GET request to the home page, the value of the ```last_search``` cookie is retrieved, <u>unserialized</u> (which is the vulnerable part), and passed to the client side for display.
+ [*] During each GET request to the home page, the value of the ```last_search``` cookie is retrieved, **_UNSERIALIZED_**. (which is the vulnerable part), and passed to the client side for display.
 This functionality allows users to see their most recent search by storing its value in a cookie.
 
 ![image](./images/2024-09-25_17h54_27.png)
 
-In the image below, you can see example usage of this functionality.
+In the image below, you can see an example of the usage of this functionality.
 
 ![image](./images/2024-09-25_18h12_04.png)
+
+As your next step, you have to craft such a payload that will execute system commands on the target website.
+You can find an exmaple paylaod form the link provieded earlier.
+
+
 ![image](./images/2024-09-25_18h22_19.png)
 ![image](./images/2024-09-25_18h24_52.png)
 ![image](./images/2024-09-25_18h26_10.png)
