@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/5fe50145-8daf-4353-abbf-d9ae1c5fd578)# Serial Escape
+# Serial Escape
 
 To start with you can run a simple NMAP scan against the target.
 ```
