@@ -9,13 +9,15 @@ nmap -sV -v <target IP>
 Based on the NMAP results, there are two ports open: SSH (22) and HTTP (80).
 If you navigate to the target IP address on a browser you will see a page as follows.
 
-![image](./images/2024-09-25_17h29_25.png)
-
-Based on the error message, you can understand that the base URL "/" requires authentication to visit.
-When you navigate to the registration page, you will see that the form requires you to enter an email address ending with "@oracle.az" only.
-
 ![image](./images/2024-09-25_17h30_48.png)
 
+Based on the error message, you can understand that the base URL "/" requires authentication to visit.
+
+To discover directories on the web application, you can use a directory brute-forcing tool like FFUF. This revealed an additional directory named 'dev', which also requires authentication.
+
+![image](./images/2024-09-25_17h29_25.png)
+
+When you navigate to the registration page, you will see that the form requires you to enter an email address ending with "@oracle.az" only.
 When registering, you'll see that the application sends an OTP code to the provided email address for verification. This step prevents users from simply filling out the form with a fake email and creating an account.
 While examining further the registration page, you can notice that the web application only verifies whether the entered email address meets the requirement (ending with '@oracle.az') on the client side.
 
