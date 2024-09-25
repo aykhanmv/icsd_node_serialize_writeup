@@ -1,6 +1,26 @@
-![image](./images/2024-09-25_17h29_25.png)
+![image](https://github.com/user-attachments/assets/5fe50145-8daf-4353-abbf-d9ae1c5fd578)# Serial Escape
+
+To start with you can run a simple NMAP scan against the target.
+```
+nmap -sV -v <target IP>
+```
 ![image](./images/2024-09-25_17h30_17.png)
+
+Based on the NMAP results, there are two ports open: SSH (22) and HTTP (80).
+If you navigate to the target IP address on a browser you will see a page as follows.
+
+![image](./images/2024-09-25_17h29_25.png)
+
+Based on the error message, you can understand that the base URL "/" requires authentication to visit.
+When you navigate to the registration page, you will see that the form requires you to enter an email address ending with "@oracle.az" only.
+
 ![image](./images/2024-09-25_17h30_48.png)
+
+While examining the registration, the web applicaiton checks only on the client side to see wether the user enetere email address meets the requirement or not. (ends with "@oracle.az").
+Meaning, you can easily 
+
+
+
 ![image](./images/2024-09-25_17h31_16.png)
 ![image](./images/2024-09-25_17h32_38.png)
 ![image](./images/2024-09-25_17h33_19.png)
