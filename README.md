@@ -25,19 +25,15 @@ Upon registering, the application sends an OTP code to the provided email for ve
 
 ![image](./images/2024-09-25_18h56_23.png)
 
-Som, you can fill out the registration form with dummy inputs, capture the network traffic with Burp Suite, and replace the email address with one of your choice (either an email you own or a temporary/disposable email) to receive the OTP code and pass verification.
-
+So, you can fill out the registration form with dummy inputs, capture the network traffic with Burp Suite, and replace the email address with one of your choice (either an email you own or a temporary/disposable email) to receive the OTP code and pass verification.
 For demonstration purposes, a temporary email was used.
 https://temp-mail.org/
 
-
-
-![image](./images/2024-09-25_17h32_38.png)
-![image](./images/2024-09-25_17h33_19.png)
-![image](./images/2024-09-25_17h33_58.png)
-![image](./images/2024-09-25_17h35_40.png)
 ![image](./images/2024-09-25_17h36_49.png)
-![image](./images/2024-09-25_17h37_15.png)
+
+Once you have placed a valid email address you can froward the traffic, which will send an OTP to the provided address.
+
+
 ![image](./images/2024-09-25_17h37_36.png)
 ![image](./images/2024-09-25_17h38_24.png)
 ![image](./images/2024-09-25_17h38_46.png)
