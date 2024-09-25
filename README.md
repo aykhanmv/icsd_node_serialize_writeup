@@ -91,10 +91,12 @@ To adapt this payload for our target application, we need to remove the dictiona
 To test if the payload works, we can attempt to ping our attacking machine and verify whether the command executes. To detect the ping requests, start a ```tcpdump``` on the attacker machine to monitor ICMP traffic.
 
 ```javascript
-_$$ND_FUNC$$_function (){require('child_process').exec('ping 10.10.128.2 -c 3', function(error, stdout, stderr) { console.log(stdout) });}()
+_$$ND_FUNC$$_function (){require('child_process').exec('ping <attacker IP> -c 3', function(error, stdout, stderr) { console.log(stdout) });}()
 ```
 
 Keep in mind that for successful code execution, the payload must first be sent to the web application. After that, you need to send another search keyword. This way, the payload becomes your previous search query and gets unserialized when accessing the home page. The vulnerability, as mentioned earlier, lies in the unserialize function of the package, not the serialize function.
+
+Once the payload above is injected, you will observe six ICMP packets: three requests and three responses.
 
 ![image](./images/2024-09-25_18h22_19.png)
 
