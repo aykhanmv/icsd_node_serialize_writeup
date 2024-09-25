@@ -50,14 +50,13 @@ On the "dev" directory you will see two files: notes.txt and source.zip
 
 ![image](./images/2024-09-25_17h41_34.png)
 
-The notes.txt file contains a message titled 'Security Alert,' highlighting a critical vulnerability in the application originating from a package called node-serialize.
-According to this message, you can understand that your next step will be download the source code of the web app (/dev/source.zip) and analyze it to move the attack further. 
+The notes.txt file contains a message titled 'Security Alert,' highlighting a critical vulnerability in the application originating from a package called ```node-serialize```.
+According to this message, you can understand that your next step will be downloading the source code of the web app (```/dev/source.zip```) and analyzing it to move the attack further. 
 
 ![image](./images/2024-09-25_17h41_42.png)
 
-
-
-![image](./images/2024-09-25_17h42_59.png)
+To begin your code review, start with the ```app.js``` file. In the ```app.js``` file, you'll also notice a warning comment regarding the ```node-serialize``` package.
+![image](./images/2024-09-25_17h43_07.png)
 
 
 ![image](./images/2024-09-25_17h45_54.png)
