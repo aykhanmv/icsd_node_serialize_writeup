@@ -31,19 +31,35 @@ https://temp-mail.org/
 
 ![image](./images/2024-09-25_17h36_49.png)
 
-Once you have placed a valid email address you can froward the traffic, which will send an OTP to the provided address.
+Once you have placed a valid email address you can forward the traffic, which will send an OTP to the provided address.
 
-
-![image](./images/2024-09-25_17h37_36.png)
-![image](./images/2024-09-25_17h38_24.png)
 ![image](./images/2024-09-25_17h38_46.png)
+
+To complete the registration process, enter the OTP code on the web application and submit.
+
 ![image](./images/2024-09-25_17h39_16.png)
 ![image](./images/2024-09-25_17h39_31.png)
+
+As a result, you will be redirected to the login page with a success message indicating that you have successfully created a new user.
+Having a user on the web application you can log in.
+
 ![image](./images/2024-09-25_17h39_50.png)
+
+On the home page, you will see the first flag for the CTF.
+
 ![image](./images/2024-09-25_17h41_34.png)
+
+Since you now have a valid user, you can visit the "dev" directory discovered earlier while directory brute-forcing with FFUF.
+On the "dev" directory you will see two files: notes.txt and source.zip
+
 ![image](./images/2024-09-25_17h41_42.png)
+
+The notes.txt file contains a message titled 'Security Alert,' highlighting a critical vulnerability in the application originating from a package called node-serialize.
+According to this message, you can understand that your next step will be download the source code of the web app (/dev/source.zip) and analyze it to move the attack further. 
+
 ![image](./images/2024-09-25_17h42_59.png)
-![image](./images/2024-09-25_17h43_07.png)
+
+
 ![image](./images/2024-09-25_17h45_54.png)
 ![image](./images/2024-09-25_17h47_51.png)
 ![image](./images/2024-09-25_17h54_27.png)
