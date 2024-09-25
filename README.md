@@ -122,6 +122,7 @@ As a result of executing  the ```sudo -l``` command, you can see that the www-da
 Executing the command ```sudo /usr/bin/apt edit-sources ../foo``` will present you with multiple options to choose a text editor. For privilege escalation, you can select either ```nano``` or ```vim```. Since these editors will run with sudo privileges, you can implement techniques to escalate your privileges. Both editors have techniques for privilege escalation, which you can find in the following links:
 
 https://gtfobins.github.io/gtfobins/vim/#sudo
+
 https://gtfobins.github.io/gtfobins/nano/#sudo
 
 ![image](./images/2024-09-25_18h33_34.png)
