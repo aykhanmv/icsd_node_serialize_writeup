@@ -1,12 +1,14 @@
 # Serial Escape
 
-To start with you can run a simple NMAP scan against the target.
-```
+You can begin by running a basic NMAP scan on the target.
+
+```bash
 nmap -sV -v <target IP>
 ```
+
 ![image](./images/2024-09-25_17h30_17.png)
 
-Based on the NMAP results, there are two open ports: SSH (22) and HTTP (80).
+Based on the NMAP result, there are two open ports: SSH (22) and HTTP (80).
 If you navigate to the target IP address on a browser you will see a page as follows.
 
 ![image](./images/2024-09-25_17h30_48.png)
@@ -25,8 +27,8 @@ Upon registering, the application sends an OTP code to the provided email for ve
 
 ![image](./images/2024-09-25_18h56_23.png)
 
-So, you can fill out the registration form with dummy inputs, capture the network traffic with Burp Suite, and replace the email address with one of your choice (either an email you own or a temporary/disposable email) to receive the OTP code and pass verification.
-For demonstration purposes, a temporary email was used.
+You can complete the registration form with dummy data, capture the network traffic using Burp Suite, and modify the email field to use an address of your choice — either a personal email or a temporary/disposable one to receive the OTP and complete verification. For demonstration purposes, a temporary email was used.
+
 https://temp-mail.org/
 
 ![image](./images/2024-09-25_17h36_49.png)
@@ -41,7 +43,7 @@ To complete the registration process, enter the OTP code and submit.
 ![image](./images/2024-09-25_17h39_31.png)
 
 As a result, you will be redirected to the login page with a success message indicating that you have successfully created a new user.
-Having a user on the web application you can log in now. On the home page, you will see the first flag for the CTF.
+Having a user on the web application you can now log in. On the home page, you will see the first flag for the CTF.
 
 ![image](./images/2024-09-25_17h39_50.png)
 
@@ -55,7 +57,7 @@ According to this message, you can understand that your next step will be downlo
 
 ![image](./images/2024-09-25_17h41_42.png)
 
-To begin your code review, start with the ```app.js``` file. In the ```app.js``` file, you'll also notice a warning comment regarding the ```node-serialize``` package.
+To begin your code review, start with the ```app.js``` file. In the ```app.js``` file, you'll again notice a warning comment regarding the ```node-serialize``` package.
 
 ![image](./images/2024-09-25_17h43_07.png)
 
